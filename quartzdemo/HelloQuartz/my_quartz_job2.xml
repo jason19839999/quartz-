@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quartz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData"
+
+        version="1.5">
+    <job>
+        <job-detail>
+            <name>deleteFileJob</name>
+            <group>dailyJob</group>
+            <description>deleteFileJob</description>
+            <job-class>mypackage.DeleteFileJob</job-class>
+            <volatility>false</volatility>
+            <durability>false</durability>
+            <recover>false</recover>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>dailyTrigger</name>
+                <group>dailyTrigger</group>
+                <description>dailyTrigger</description>
+                <job-name>deleteFileJob</job-name>
+                <job-group>dailyJob</job-group>
+                <cron-expression>0/2 * * * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </job>
+</quartz>
